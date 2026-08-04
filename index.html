@@ -33,12 +33,36 @@
     <!-- SKILLS SECTION -->
     <section id="skills">
         <h2>My Skills</h2>
-        <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-            <li>React</li>
-        </ul>
+        <table border="1">
+    <tr>
+        <th>Skill</th>
+        <th>Level</th>
+    </tr>
+    <tr>
+        <td>HTML5</td>
+        <td>Beginner</td>
+    </tr>
+    <tr>
+        <td>CSS3</td>
+        <td>Beginner</td>
+    </tr>
+    <tr>
+        <td>C/C++</td>
+        <td>Intermediate</td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td>Beginner</td>
+    </tr>
+    <tr>
+        <td>React</td>
+        <td>Beginner</td>
+    </tr>
+    <tr>
+        <td>Python</td>
+        <td>Intermediate</td>
+    </tr>
+</table>
     </section>
  
     <!-- PROJECTS SECTION -->
@@ -52,10 +76,73 @@
     </section>
  
     <!-- CONTACT SECTION -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:manikanta.kardalli@email.com">manikanta.kardalli@email.com</a></p>
-    </section>
+ <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Have a project in mind? Let's talk!</p>
+ 
+    <form action="#" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name"
+               placeholder="Enter your name" required>
+ 
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email"
+               placeholder="Enter your email" required>
+               <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+            <option value="">-- Select a topic --</option>
+            <option value="hire">I want to hire you</option>
+            <option value="collab">I want to collaborate</option>
+            <option value="other">Other</option>
+        </select>
+<!--password-->
+
+    <p>Password:</p>
+<input type="password" id="password" name="password" minlength="8">
+
+<!-- Country -->
+<p>Country:</p>
+<select id="country" name="country">
+    <option value="">-- Choose Country --</option>
+    <option value="in">India</option>
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+    <option value="R">Russia</option>
+    <option value="eu">Europe</option>
+</select>
+
+<!-- Phone Number -->
+
+<p>Phone Number:</p>
+<input type="tel" id="phone" name="phone">
+
+<!-- Experience Level -->
+
+<p>Experience Level:</p>
+<select id="experience" name="experience">
+    <option value="">-- Select Experience Level --</option>
+    <option value="beginner">Beginner</option>
+    <option value="intermediate">Intermediate</option>
+    <option value="advanced">Advanced</option>
+    <option value="expert">Expert</option>
+</select>
+
+<!-- Skills -->
+
+<p>Skills:</p>
+<input type="checkbox" name="skills" value="HTML"> HTML
+<input type="checkbox" name="skills" value="CSS"> CSS
+<input type="checkbox" name="skills" value="Python"> Python
+<input type="checkbox" name="skills" value="JavaScript"> JavaScript
+        
+<p>Message:</p>
+        <textarea id="message" name="message" rows="5"
+                  placeholder="Tell me about your project..." required></textarea>
+ 
+        <button type="submit">Send Message 🚀</button>
+    </form>
+ </section>
+    
  
     <!-- FOOTER -->
     <footer>
