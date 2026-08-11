@@ -10,7 +10,7 @@
     --primary: #1B4F72;
     --accent: #F18F01;
     --text: #2C3E50;
-    --light: #F4F6F8;
+    --light: hsl(210, 22%, 96%);
     --white: #FFFFFF;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  
@@ -73,6 +73,10 @@ body {
     font-size: 3rem;
     margin-bottom: 20px;
  
+}
+.hero-buttons a {
+    margin-top: 20px;
+    color:#FFD166;
 }
 
 /* === SECTION STYLES === */
