@@ -119,7 +119,7 @@ section h2::after{
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .skill-item:hover{
-    transform: translateY(-5px);
+    transform: translateY(-15px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 /* PROJECTS SECTION */
