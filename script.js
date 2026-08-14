@@ -64,44 +64,115 @@ window.addEventListener('scroll', () =>{
     })
 })
 
-//Day 10 - Project Filter System
-const projects =[
-    { id: 1, name: "Weather App", category: "web", tech: ["React", "API"] ,},
-    { id: 2, name: "Bank Management System", category: "java", tech: ["Java"] , link: "https://github.com/Manikantakardalli/java-programs/blob/main/src/mini_projects/Bank.java"},
-    { id: 3, name: "Portfolio", category: "design", tech: ["HTML", "CSS"] },
-    { id: 4, name: "Movie Booking System", category: "python", tech: ["Python"] },
-    { id: 5, name: "Hotel Management System", category: "python", tech: ["Python"] }
- 
+// Day 10 - Project Filter System
+
+const projects = [
+    {
+        id: 1,
+        name: "Weather App",
+        category: "web",
+        tech: ["React", "API"],
+        output: "#",
+        code: "#"
+    },
+
+    {
+        id: 2,
+        name: "Bank Management System",
+        category: "java",
+        tech: ["Java", "Console"],
+        output: "videos/Bank-output.mp4",
+        code: "https://github.com/Manikantakardalli/java-programs/blob/main/src/mini_projects/Bank.java"
+    },
+
+    {
+        id: 3,
+        name: "Portfolio",
+        category: "design",
+        tech: ["HTML", "CSS"],
+        output: "#",
+        code: "#"
+    },
+
+    {
+        id: 4,
+        name: "Movie Booking System",
+        category: "python",
+        tech: ["Python", "Console"],
+        output: "videos/Movie-output.mp4",
+        code: "https://github.com/Manikantakardalli/python-programs/blob/main/Mini_projects/movie_booking.py"
+    },
+
+    {
+        id: 5,
+        name: "Hotel Management System",
+        category: "python",
+        tech: ["Python", "Console"],
+        output: "videos/Hotel-output.mp4",
+        code: "https://github.com/Manikantakardalli/python-programs/blob/main/Mini_projects/hotel_management_system.py"
+    }
 ];
- 
-function renderProjects(filter="all") {
-    const grid = document.querySelector('.projects-grid');
+
+
+// Display Projects
+function renderProjects(filter = "all") {
+
+    const grid = document.querySelector(".projects-grid");
+
     const filtered = filter === "all"
-    ? projects
-    : projects.filter(p => p.category === filter);
- 
-    grid.innerHTML = filtered.map(project =>
-        `<article class="project-card">
-        <div class="project-card-body">
-        <h3>${project.name}</h3>
-        <div class="project-tags">
-        ${project.tech.map(t => `<span class="tag">${t}</span>`).join('')}      
-        </div>
-        <a href="${project.link || '#'}" class=" btn btn-primary" target="_blank">View Project</a>
-        </div>
+        ? projects
+        : projects.filter(p => p.category === filter);
+
+    grid.innerHTML = filtered.map(project => `
+        
+        <article class="project-card">
+
+            <div class="project-card-body">
+
+                <h3>${project.name}</h3>
+
+                <div class="project-tags">
+                    ${project.tech
+                        .map(t => `<span class="tag">${t}</span>`)
+                        .join("")}
+                </div>
+
+                <a href="${project.output}"
+                   class="btn btn-primary"
+                   target="_blank">
+                    View Output
+                </a>
+
+                <a href="${project.code}"
+                   class="btn btn-primary"
+                   target="_blank">
+                    View Code
+                </a>
+
+            </div>
+
         </article>
-        `).join('');
+
+    `).join("");
 }
- 
-//Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn =>{
-    btn.addEventListener('click',()=>{
-        document.querySelectorAll('.filter-btn').forEach(b =>
-            b.classList.remove('active'));
-            btn.classList.add('active')
-            renderProjects(btn.dataset.filter);
-});
+
+
+// Filter Buttons
+document.querySelectorAll(".filter-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".filter-btn").forEach(b =>
+            b.classList.remove("active")
+        );
+
+        btn.classList.add("active");
+
+        renderProjects(btn.dataset.filter);
     });
- 
-//Intial render
-renderProjects()
+
+});
+
+
+// Initial Render
+renderProjects();
