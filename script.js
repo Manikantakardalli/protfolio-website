@@ -63,3 +63,45 @@ window.addEventListener('scroll', () =>{
         }
     })
 })
+
+//Day 10 - Project Filter System
+const projects =[
+    { id: 1, name: "Weather App", category: "web", tech: ["React", "API"] ,},
+    { id: 2, name: "Bank Management System", category: "java", tech: ["Java"] , link: "https://github.com/Manikantakardalli/java-programs/blob/main/src/mini_projects/Bank.java"},
+    { id: 3, name: "Portfolio", category: "design", tech: ["HTML", "CSS"] },
+    { id: 4, name: "Movie Booking System", category: "python", tech: ["Python"] },
+    { id: 5, name: "Hotel Management System", category: "python", tech: ["Python"] }
+ 
+];
+ 
+function renderProjects(filter="all") {
+    const grid = document.querySelector('.projects-grid');
+    const filtered = filter === "all"
+    ? projects
+    : projects.filter(p => p.category === filter);
+ 
+    grid.innerHTML = filtered.map(project =>
+        `<article class="project-card">
+        <div class="project-card-body">
+        <h3>${project.name}</h3>
+        <div class="project-tags">
+        ${project.tech.map(t => `<span class="tag">${t}</span>`).join('')}      
+        </div>
+        <a href="${project.link || '#'}" class=" btn btn-primary" target="_blank">View Project</a>
+        </div>
+        </article>
+        `).join('');
+}
+ 
+//Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn =>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filter-btn').forEach(b =>
+            b.classList.remove('active'));
+            btn.classList.add('active')
+            renderProjects(btn.dataset.filter);
+});
+    });
+ 
+//Intial render
+renderProjects()
